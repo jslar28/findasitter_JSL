@@ -15,6 +15,7 @@ import { UsersActions } from '../users.actions';
 export class RegisterComponent implements OnInit {
   private registerForm;
   private isBaby;
+  private sitters;
 
   constructor(private data: DataService,
     private fb: FormBuilder, private router: Router,
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
     // Subscribe to the users part of the store.
     this.ngRedux.select(state => state.users).subscribe(res => {
       this.isBaby = res.isBaby;
+      this.sitters = res.sitters;
       console.log(this.isBaby);
     });
 

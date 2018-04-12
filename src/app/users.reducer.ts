@@ -2,7 +2,9 @@ import { UsersActions } from './users.actions';
 import { UsersState } from './store/store';
 import { tassign } from 'tassign';
 
-const INITIAL_STATE: UsersState = {isBaby: undefined, babies: []}
+const INITIAL_STATE: UsersState = {isBaby: undefined, babies: [], sitters: [{
+  firstname: 'Jakob', lastname: 'Larsen', age: 23, yearsOfExperience: 4, region: "Søborg", picture: "N/A", gender: 'Male', phone: "20202020", ratings: [5]
+}]}
 
 export function usersReducer(state: UsersState = INITIAL_STATE, action:any) {
  
@@ -23,6 +25,15 @@ export function usersReducer(state: UsersState = INITIAL_STATE, action:any) {
 
     // return Object.assign({}, state, {isBaby: action.payload, foo: 1});
     return tassign(state, { isBaby: action.payload});
+
+    case UsersActions.ADD_RATING:
+
+    //Selecting first for now
+    //let selectedSitter = action.payload.sitters[0];
+    
+
+
+    return tassign(state, {sitters: [...state.sitters, action.payload]});
  
     default:
      return state;

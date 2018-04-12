@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from './store/store';
 import { Baby } from './entities/baby';
+import { Sitter } from './entities/sitter';
 
 @Injectable()
 export class UsersActions {
@@ -11,6 +12,7 @@ export class UsersActions {
    
    static SET_TYPE: string = 'SET_TYPE';
    static ADD_BABY: string = 'ADD_BABY';
+   static ADD_RATING: string = 'ADD_RATING';
    
    setType(isBaby: boolean): void {
     this.ngRedux.dispatch({
@@ -26,6 +28,13 @@ export class UsersActions {
        payload: baby
        //Example of passing multiple parameters to reducer by passing an object
        //payload: {baby, sitterName}
-     })
+     });
+   }
+
+   addRating(sitter: Sitter, rating: Number) {
+     this.ngRedux.dispatch({
+       type: UsersActions.ADD_RATING,
+       payload: {sitter, rating}
+     });
    }
 }

@@ -1,8 +1,10 @@
 <!-- Dispatch actions -->
 <button (click)="usersActions.setType(true)">Set to true</button>
 <button (click)="usersActions.setType(false)">Set to false</button>
+<button (click)="usersActions.addRating({firstname: 'Jakob', lastname: 'Larsen', age: 23, yearsOfExperience: 4, region: 'Søborg', picture: 'N/A', gender: 'Male', phone: '20202020', ratings: [5]}, 5)">Add 5 rating to sitters[0]</button>
 
 {{isBaby}}
+{{sitters}}
 
 <form novalidate [formGroup]="registerForm" 
   (submit)="onSubmit(registerForm)">
