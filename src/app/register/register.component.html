@@ -1,0 +1,31 @@
+<!-- Dispatch actions -->
+<button (click)="usersActions.setType(true)">Set to true</button>
+<button (click)="usersActions.setType(false)">Set to false</button>
+
+{{isBaby}}
+
+<form novalidate [formGroup]="registerForm" 
+  (submit)="onSubmit(registerForm)">
+  <div>
+    <label>Firstname</label>
+    <input id="firstname" type="text" formControlName="firstname">
+  </div>
+  <div>
+    <label>PostalCode</label>
+    <input id="postalCode" type="text" formControlName="postalCode">
+  </div>
+  <div>
+    <label>Picture (change to file selector)</label>
+    <input id="picture" type="text" formControlName="picture">
+  </div>
+  <div>
+    <label>Age</label>
+    <input id="age" type="text" formControlName="age">
+  </div>
+  <div>
+    <label>Gender</label>
+    <input id="gender" type="text" formControlName="gender">
+  </div>
+
+  <button id="e2e-submit" type="submit">Register</button>
+</form>
